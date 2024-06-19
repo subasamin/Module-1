@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a= 0;
+    let b= 1;
+    temp = null;
+    while (temp<6000){
+        temp= a+b;
+        if (temp%5==0){
+            document.write(' '+ temp);
+            break;
+        }
+        a = b;
+        b = temp;
+    }
+
+</script>
+</body>
+</html>

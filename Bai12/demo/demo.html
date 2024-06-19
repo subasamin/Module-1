@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let n= prompt('Nhap vao so n')
+let a = [];
+while(n<0||n>10){
+n= prompt('Moi ban nhap lai n');
+}
+for (let i= 0; i<n;i++){
+a[i]= prompt('Moi ban nhap vao phan tu thu '+i);
+}
+for (let i=0;i<n;i++){
+document.write(a[i] + "<br/>");
+}
+</script>
+</body>
+</html>

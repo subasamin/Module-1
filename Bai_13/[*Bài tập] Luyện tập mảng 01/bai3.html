@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr_Number= [2,6,8,43,66,1098,48,57,36];
+    let max= arr_Number[0];
+    let tb = null
+    let sum = null
+    for(let i=1;i<arr_Number.length;i++){
+        if (arr_Number[i]>max){
+            max= arr_Number[i]
+        }
+    }
+    document.write('so lon nhat la '+max +'<br>');
+
+    for(i=0;i<arr_Number.length;i++){
+        sum= sum + arr_Number[i]
+    }
+    tb = sum/(arr_Number.length)
+    document.write('gia tri trung binh la '+tb+'<br>');
+
+</script>
+</body>
+</html>

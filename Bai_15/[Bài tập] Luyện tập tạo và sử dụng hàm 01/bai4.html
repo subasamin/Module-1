@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let star = ['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus']
+    let constellation = ['UrsaMinor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'UrsaMajor', 'Leo']
+    let word = prompt (`nhap vao ten mot ngoi sao`)
+    function findStar(star,star2) {
+        for (let i=0;i<star.length;i++){
+            if (word===star[i]){
+                document.write(star2[i])
+                return
+            }
+        }
+        document.write(' Khong tim thay ngoi sao nao ')
+    }
+    findStar(star,constellation)
+</script>
+</body>
+</html>

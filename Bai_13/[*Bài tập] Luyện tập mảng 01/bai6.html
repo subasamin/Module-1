@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrayNumber = [1,4,5,7,2,3,9,32,67,23]
+    let V = prompt('Nhap vao so V ')
+    let count = -1;
+    for (let i=0;i<arrayNumber.length;i++) {
+        if (arrayNumber[i] === V) {
+            document.write('V is an  the array ')
+            count =i
+        }
+    }
+    if (count===-1){
+        document.write('V not is  the array')
+    }
+</script>
+</body>
+</html>

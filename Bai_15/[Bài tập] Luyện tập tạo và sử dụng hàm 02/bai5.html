@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number1 = parseInt(prompt('Nhap vao so nguyen '))
+    let number2 = parseInt(prompt('Nhap vao so nguyen '))
+    let number3 = parseInt(prompt('Nhap vao so nguyen '))
+    function compareNum(a,b,c) {
+        let arr = [a,b,c];
+        let min = arr[0];
+        for (let i=1;i<arr.length;i++){
+            if (min>arr[i]){
+                min=arr[i]
+            }
+        }
+        document.write(min);
+    }
+compareNum(number1,number2,number3)
+</script>
+</body>
+</html>

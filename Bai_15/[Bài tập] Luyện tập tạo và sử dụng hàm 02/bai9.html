@@ -7,23 +7,22 @@
 <body>
 <script>
     let word = prompt('Nhap vao mot ki tu bat ki');
-    let arr = [a,d,s,r,s,a,b,m,r];
+    let arr = ["a","d","s","r","s","a","b","m","r"];
     function check(word,arr) {
-        let count = -1;
+        let count = 0;
         for (let i=0;i<arr.length;i++){
             if (word===arr[i]){
                 count++
             }
         }
-        if (count>=0){
-            document.write(word+' Co nam trong mang arr va xuat hien ' +(count+1)+' lan ');
+        if (count>0){
+            document.write(word+' Co nam trong mang arr va xuat hien ' +(count)+' lan ');
         }
         else {
-            document.write(count);
+            document.write(word+' khong nam trong mang arr ');
         }
     }
     check(word,arr);
-console.log(word)
 </script>
 </body>
 </html>

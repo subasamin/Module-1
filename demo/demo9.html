@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celius){
+            this.celius = celius;
+        }
+        getCelius(){
+            this.celius = celius
+        }
+        setCelius(){
+            return this.celius;
+        }
+        getFahrenheit(celius){
+            return let F =  this.celius*9/5+32;
+        }
+        getKelvin(celius){
+            return   this.celius+273;
+        }
+    }
+    let Temperature1 = new Temperature(25);
+    document.write(Temperature1.getKelvin());
+    document.write(Temperature1.getFahrenheit());
+</script>
+</body>
+</html>

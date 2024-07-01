@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Rectangle = function (length, width){
+        this.length = length;
+        this.width = width;
+        this.getLength = function (){
+            return this.length;
+        }
+        this.getWidth = function () {
+            return this.width;
+        }
+        this.getPerimeter = function (){
+            return perimeter = 2*(length+width);
+        }
+        this.getAcreage = function (){
+            return acreage = length*width;
+        }
+        this.setLength = function (length){
+            this.length = length;
+        }
+        this.setWidth = function (width){
+            this.width = width;
+        }
+    };
+    let rectangle = new Rectangle(3, 2);
+    document.write(rectangle.getPerimeter());
+    document.write(rectangle.getAcreage());
+
+
+</script>
+</body>
+</html>

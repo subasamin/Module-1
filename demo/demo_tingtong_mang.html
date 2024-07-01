@@ -6,12 +6,18 @@
 </head>
 <body>
 <script>
-    let arrayNumber = [1,4,6,3,8,9,43,78];
-    let sum = 0;
-    for (let i=0;i<arrayNumber.length;i++){
-        sum+=arrayNumber[i];
+    function findAvg(arr) {
+        let sum = 0;
+        for(let i=0;i<arr.length;i++){
+            sum+=i;
+        }
+        let avg = sum/(arr.length)
+        return avg;
     }
-    document.write('Tong cua day so la '+sum);
+    let arr1 = [1,3,5,7]
+    let x = findAvg(arr1)
+    document.write(x)
+
 </script>
 </body>
 </html>

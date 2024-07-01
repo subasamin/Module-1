@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Sắp xếp một dãy số theo thứ tự tăng dần
+    //(2,4,7,3,8,0,6,22,98)
+    let arr = [2,4,7,3,8,0,6,22,98];
+    let arr1 = [9,8,7,6,5,4,3,2,1]
+    function sapxepArr (arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                let num = arr[i];
+                if (num > arr[j]) {
+                    arr[i] = arr[j];
+                    arr[j] = num;
+                }
+            }
+        }
+        return arr;
+    }
+document.write(sapxepArr(arr1))
+</script>
+</body>
+</html>

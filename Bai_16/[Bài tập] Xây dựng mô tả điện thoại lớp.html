@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(battery,memory) {
+            this.battery = battery;
+            this.memory = memory;
+        }
+        getBattery() {
+            this.battery = battery;
+        }
+        getMemory(){
+            this.memory = memory;
+        }
+        setBattery(battery){
+            return this.battery = battery;
+        }
+        setMemory(memory){
+            return this.memory = memory;
+        }
+        getStatus(){
+            if (this.battery>0){
+                this.status = true;
+                return this.status;
+            }
+            else {
+                this.status = false;
+                return this.status;
+            }
+        }
+        checkOnOff(){
+            if (this.getStatus = true){
+                alert(' Dien thoai dang bat');
+                return true;
+            }
+            else {
+                alert('Dien thoai dang tat');
+                return false;
+            }
+        }
+        turnOn(){
+            if (this.checkOnOff==false){
+                alert('Dien thoai da bat');
+                this.battery --;
+            }
+            else {
+                alert('Dien thoai da bat');
+                this.battery--
+            }
+            return true;
+        }
+        turnOff(){
+            if (this.checkOnOff()==true){
+                alert('Dien thoai da tat');
+                this.battery--
+            }
+            else {
+                alert('Dien thoai da tat');
+                this.battery--
+            }
+            return false;
+        }
+        checkBattery(){
+            this.battery--;
+            return this.battery;
+        }
+        writeMessage(write){
+            if (this.turnOn()) {
+                write = prompt('viet tin nhan')
+                this.memory--
+                this.battery--
+                return write;
+            }
+        }
+        sendMessage(){
+            if (this.turnOn()) {
+                this.battery--
+                return this.writeMessage();
+            }
+        }
+        receiveMessage(){
+            if(this.turnOn()) {
+                this.memory--;
+                this.battery--;
+                return this.sendMessage();
+            }
+        }
+        checkSendMessage(){
+            if (this.turnOn()) {
+                alert('Hop thu da gui' + this.sendMessage());
+                this.battery--
+            }
+        }
+        checkReceiveMessage(){
+            if (this.turnOn()) {
+                alert('hop thu den '+this.receiveMessage());
+                this.battery--
+            }
+        }
+
+    }
+    let iphone = new Mobile(100, 100);
+    let nokia = new Mobile(100, 100);
+    document.write(iphone.checkBattery())
+
+
+</script>
+</body>
+</html>

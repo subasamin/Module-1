@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i =0;i<10;i++){
+        let num = prompt('Nhap vao mot so nguyen');
+        arr.push(num);
+    }
+    let count = 0;
+    let sum = 0;
+    for ( let i = 0;i<arr.length;i++){
+        if (arr[i]%2===0&&arr[i]!=0){
+            sum+=arr[i];
+            count++
+        }
+    }
+    let avg = sum/count;
+    document.write(avg);
+</script>
+</body>
+</html>

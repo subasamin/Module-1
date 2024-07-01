@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Phone {
+        constructor(baterry,memory) {
+            this.baterry = baterry;
+            this.memory = memory;
+            this.draft = "";
+            this.sent = [];
+            this.inbox = [];
+        }
+        typeMessage(message){
+            this.draft = message;
+        }
+        sendMessage(mobile){
+            let draft = this.draft;
+            mobile.inbox.push(draft);
+            this.sent.push(draft)
+            this.draft = ""
+        }
+    }
+    let duy = new Phone(100,100);
+    let ky = new Phone(100,100);
+    duy.typeMessage('di choi khong');
+    duy.sendMessage(ky);
+    document.write(ky.inbox)
+    document.write(duy.sent)
+</script>
+</body>
+</html>

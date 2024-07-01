@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Temperature = function (celcius){
+        this.celcius = celcius;
+        this.getCelcius = function (){
+            return celcius;
+        }
+        this.getFahrenheit = function (){
+            return fahrenheit = celcius*(9/5)+32;
+        }
+        this.getKelvin = function (){
+            return kelvin = celcius+273;
+        }
+    };
+    let temperature = new Temperature(25)
+    document.write(' Nhiệt độ F là ' + temperature.getFahrenheit());
+    document.write('Nhiệt độ K là ' + temperature.getKelvin());
+</script>
+</body>
+</html>

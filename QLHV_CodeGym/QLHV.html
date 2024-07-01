@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <td align="center">ID</td>
-            <td id="ID" align="center"><input type="number"></td>
+            <td id="id" align="center"><input type="number"></td>
         </tr>
         <tr>
             <td align="center">Họ tên</td>
@@ -26,11 +26,15 @@
         </tr>
         <tr>
             <td align="center">Ngày sinh</td>
-            <td id="date" align="center"><input type="date"></td>
+            <td id="date" align="center"><input type="text"></td>
         </tr>
         <tr>
             <td align="center">Giới tính</td>
-            <td id="gender" align="center"><input type="text"></td>
+            <td id="gender" align="center">
+                <input name="gender" type="radio" value="Nam" />Nam
+                <input name="gender" type="radio" value="Nữ" />Nữ
+                <input name="gender" type="radio" value="Khác" />Khác
+            </td>
         </tr>
         <tr>
             <td align="center">Lớp</td>
@@ -42,7 +46,7 @@
         </tr>
         <tr>
             <td></td>
-            <td align="center"><button>Add</button> <button>Save</button></td>
+            <td align="center"><button onclick="addStudent()">Add</button> <button onclick="updateStudent()">Save</button></td>
         </tr>
     </table>
     <table style="width: 55%" align="right">
@@ -121,9 +125,9 @@
         constructor(arr) {
             this.student = arr;
         }
-        dsStudent() {
+        listStudent() {
             let table = "";
-            for (i = 0; i < this.student.length; i++) {
+            for (let i = 0; i < this.student.length; i++) {
                 table += '<tr>';
                 table += '<td>';
                 table += this.student[i].id;
@@ -150,8 +154,8 @@
                 table += '</td>';
 
                 table += '<td>' +
-                    '<button style="background-color: red; color: white "  type="button" onclick="deleteStudent('+i+')">Delete</button> ' +
-                    ' <button  style="background-color: orange ; color: white" type="button" onclick="editStudent('+i+')">Edit</button>' +
+                    '<button onclick="deleteStudent('+i+')">Delete</button> ' +
+                    ' <button onclick="editStudent('+i+')">Edit</button>' +
                     '</td>';
 
                 table += '</tr>';
@@ -162,26 +166,25 @@
         addStudent(student) {
             this.student.push(student);
         }
-
         delete(id) {
             this.student.splice(id, 1);
         }
-        findStudentById(id) {
-            return this.student[id];
+        findStudentById(i) {
+            return this.student[i];
         }
-        edit(student, id, name, date, gender, classroom, image) {
-            student.edit(id, name, date, gender, classroom, image);
+        edit( student, id, name, date, gender, classroom, image) {
+             student.edit(id, name, date, gender, classroom, image)
         }
     }
 
-    let student = new Student(C0524I1, 'Vũ Phúc Kỳ', '01/01/2000', Nam, C0524, ky.jpeg);
-    let student1 = new Student(C0524I2, 'Văn Chuyên', '02/03/2000', Nam, C0524, chuyen.jpeg);
-    let student2 = new Student(C0524I3, 'Minh Tuấn', '09/04/2000', Nam, C0524, Tuan.jpeg);
+    let student = new Student('C0524I1', 'Vũ Phúc Kỳ', '01/01/2000', 'Nam', 'C0524', 'ky.jpeg');
+    let student1 = new Student('C0524I2', 'Văn Chuyên', '02/03/2000', 'Nam', 'C0524', 'chuyen.jpeg');
+    let student2 = new Student('C0524I3', 'Minh Tuấn', '09/04/2000', 'Nam', 'C0524', 'tuan.jpeg');
     let arr = [student, student1,student2];
     let manage = new StudentManage(arr);
 
     function addStudent() {
-        let id = document.getElementById("ID").value;
+        let id = document.getElementById("id").value;
         let name = document.getElementById("name").value;
         let date = document.getElementById("date").value;
         let gender = document.getElementById("gender").value;
@@ -194,7 +197,7 @@
     }
 
     function clear() {
-        document.getElementById("ID").value="";
+        document.getElementById("id").value="";
         document.getElementById("name").value="";
         document.getElementById("date").value="";
         document.getElementById("gender").value="";
@@ -202,37 +205,36 @@
         document.getElementById("image").value="";
     }
 
-    function deleteStudent(ID) {
-      manage.delete(ID);
-      manage.StudentManage();
+    function deleteStudent(i) {
+      manage.delete(i);
+      manage.listStudent();
     }
-
     let studentId = 0;
-    function editStudent(ID){
-        let student = manage.findStudentById(ID);
-        document.getElementById("ID").value = student.id;
+    function editStudent(i){
+        let student = manage.findStudentById(i);
+        document.getElementById("id").value = student.id;
         document.getElementById("name").value = student.name;
         document.getElementById("name").value = student.date;
         document.getElementById("gender").value = student.gender;
         document.getElementById("classroom").value = student.classroom;
         document.getElementById("image").value = student.image;
-        studentId = id;
-    }
 
+        studentId = i;
+    }
     function updateStudent(){
-        let id = document.getElementById("ID").value;
+        let id = document.getElementById("id").value;
         let name = document.getElementById("name").value;
         let date = document.getElementById("date").value;
         let gender = document.getElementById("gender").value;
         let classroom = document.getElementById("classroom").value;
         let image = document.getElementById("image").value;
-        let student = manage.findStudentById(studentId);
+
+        let student = manage.findStudentById(studentId)
         manage.edit(student,id,name,date,gender,classroom, image);
-        manage.dsStudent();
+        manage.listStudent();
         clear();
     }
-    manage.dsStudent();
-
+    manage.listStudent();
 </script>)
 
 </html>

@@ -4,237 +4,80 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        table{
+            background-color: aliceblue;}
         table, th, td {
             border: 0.5px solid black;
         }
     </style>
+
 </head>
 <body>
-<img src="logo codegym.jpeg" height="120" width="1200" alt="logo codegym" align="center" />
+<div style="display: flex; justify-content: center;"><img src="logo codegym.jpeg" height="110" width="1000" alt="logo codegym" align="center" /></div>
 <h2 align="center" style="font-size: 70px">Quản lý học viên</h2>
-    <table style="width:35%" align="left">
-        <tr>
-            <th colspan="2" style="font-size: 18px" >Thông tin học viên</th>
-        </tr>
-        <tr>
-            <td align="center">ID</td>
-            <td id="id" align="center"><input type="number"></td>
-        </tr>
-        <tr>
-            <td align="center">Họ tên</td>
-            <td id="name" align="center"><input type="text"></td>
-        </tr>
-        <tr>
-            <td align="center">Ngày sinh</td>
-            <td id="date" align="center"><input type="text"></td>
-        </tr>
-        <tr>
-            <td align="center">Giới tính</td>
-            <td id="gender" align="center">
-                <input name="gender" type="radio" value="Nam" />Nam
-                <input name="gender" type="radio" value="Nữ" />Nữ
-                <input name="gender" type="radio" value="Khác" />Khác
-            </td>
-        </tr>
-        <tr>
-            <td align="center">Lớp</td>
-            <td id="classroom" align="center"><input type="text"></td>
-        </tr>
-        <tr>
-            <td align="center">Ảnh</td>
-            <td id="image" align="center"><input type="file"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td align="center"><button onclick="addStudent()">Add</button> <button onclick="updateStudent()">Save</button></td>
-        </tr>
-    </table>
-    <table style="width: 55%" align="right">
-        <tr>
-            <th colspan="7" align="center" style="font-size: 18px">Danh sách học viên</th>
-        </tr>
-        <tr>
-            <td align="center">ID</td>
-            <td align="center">Họ tên</td>
-            <td align="center">Ngày sinh</td>
-            <td align="center">Giới tính</td>
-            <td align="center">Lớp</td>
-            <td align="center">Ảnh</td>
-            <td align="center">Tuỳ chọn</td>
-        </tr>
-        <tbody id="list_student"></tbody>
-    </table>
+    <div>
+        <table style="width:35%" align="left">
+            <tr>
+                <th colspan="2" style="font-size: 22px" >Thông tin học viên </th>
+            </tr>
+            <tr>
+                <td align="center">ID</td>
+                <td  align="center"><input type="number" id="id"></td>
+            </tr>
+            <tr>
+                <td align="center">Họ tên</td>
+                <td align="center"><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td align="center">Ngày sinh</td>
+                <td  align="center"><input type="text" id="date"></td>
+            </tr>
+            <tr>
+                <td align="center">Giới tính</td>
+                <td align="center"><input type="text" id="gender"></td>
+            </tr>
+            <tr>
+                <td align="center">Lớp</td>
+                <td align="center"><input type="text" id="classroom"></td>
+            </tr>
+            <tr>
+                <td align="center">Ảnh</td>
+                <td align="center"><input type="file" id="image"></td>
+            </tr>
+            <tr>
+                <td align="center">Số điện thoại</td>
+                <td align="center"><input type="number" id="phone"></td>
+            </tr>
+            <tr>
+                <td align="center">Địa chỉ</td>
+                <td align="center"><input type="text" id="address"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td align="center"><button onclick="addStudent()">Add</button> <button onclick="updateStudent()">Save</button></td>
+            </tr>
+        </table>
+        <table style="width: 55%" align="right">
+            <tr>
+                <th colspan="9" align="center" style="font-size: 22px">Danh sách học viên</th>
+            </tr>
+            <tr>
+                <td align="center">ID</td>
+                <td align="center">Họ tên</td>
+                <td align="center">Ngày sinh</td>
+                <td align="center">Giới tính</td>
+                <td align="center">Lớp</td>
+                <td align="center">Ảnh</td>
+                <td align="center">Số điện thoại</td>
+                <td align="center">Địa chỉ</td>
+                <td align="center">Tuỳ chọn</td>
+            </tr>
+            <tbody id="list_student"></tbody>
+        </table>
+    </div>
+    <script src="Student.js"></script>
+    <script src="StudentManage.js"></script>
+    <script src="main.js"></script>
 </body>
-<script>
-    class Student {
-        constructor(id, name, date, gender, classroom, image) {
-            this.id = id;
-            this.name = name;
-            this.date = date;
-            this.gender = gender;
-            this.classroom = classroom;
-            this.image = image;
-        }
-        getID (){
-            return this.id;
-        }
-        getName(){
-            return this.name;
-        }
-        getDate(){
-            return this.date;
-        }
-        getGender(){
-            return this.gender;
-        }
-        getClassroom(){
-            return this.classroom;
-        }
-        getImage() {
-            return this.image;
-        }
-        setID(id){
-            this.id = id;
-        }
-        setName(name){
-            this.name = name;
-        }
-        setDate(date){
-            this.date = date;
-        }
-        setGender(gender){
-            this.gender = gender;
-        }
-        setClassroom(classroom){
-            this.classroom = classroom;
-        }
-        setImage(image){
-            this.image = image;
-        }
-        edit(id, name, date, gender, classroom, image){
-            this.id = id;
-            this.name = name;
-            this.date = date;
-            this.gender = gender;
-            this.classroom = classroom;
-            this.image = image;
-        }
-    }
-
-    class StudentManage {
-        constructor(arr) {
-            this.student = arr;
-        }
-        listStudent() {
-            let table = "";
-            for (let i = 0; i < this.student.length; i++) {
-                table += '<tr>';
-                table += '<td>';
-                table += this.student[i].id;
-                table += '</td>';
-
-                table += '<td>';
-                table += this.student[i].name;
-                table += '</td>';
-
-                table += '<td>';
-                table += this.student[i].date;
-                table += '</td>';
-
-                table += '<td>';
-                table += this.student[i].gender;
-                table += '</td>';
-
-                table += '<td>';
-                table += this.student[i].classroom;
-                table += '</td>';
-
-                table += '<td>';
-                table += '<img width="100px" height="100px" src=" '+this.student[i].image+'">';
-                table += '</td>';
-
-                table += '<td>' +
-                    '<button onclick="deleteStudent('+i+')">Delete</button> ' +
-                    ' <button onclick="editStudent('+i+')">Edit</button>' +
-                    '</td>';
-
-                table += '</tr>';
-
-            }
-            document.getElementById("list_student").innerHTML = table;
-        }
-        addStudent(student) {
-            this.student.push(student);
-        }
-        delete(id) {
-            this.student.splice(id, 1);
-        }
-        findStudentById(i) {
-            return this.student[i];
-        }
-        edit( student, id, name, date, gender, classroom, image) {
-             student.edit(id, name, date, gender, classroom, image)
-        }
-    }
-
-    let student = new Student('C0524I1', 'Vũ Phúc Kỳ', '01/01/2000', 'Nam', 'C0524', 'ky.jpeg');
-    let student1 = new Student('C0524I2', 'Văn Chuyên', '02/03/2000', 'Nam', 'C0524', 'chuyen.jpeg');
-    let student2 = new Student('C0524I3', 'Minh Tuấn', '09/04/2000', 'Nam', 'C0524', 'tuan.jpeg');
-    let arr = [student, student1,student2];
-    let manage = new StudentManage(arr);
-
-    function addStudent() {
-        let id = document.getElementById("id").value;
-        let name = document.getElementById("name").value;
-        let date = document.getElementById("date").value;
-        let gender = document.getElementById("gender").value;
-        let classroom = document.getElementById('classroom').value;
-        let image = document.getElementById("image").value;
-        let student = new Student(id,name,date,gender,classroom,image);
-        manage.addStudent(student);
-        manage.dsStudent();
-        clear();
-    }
-
-    function clear() {
-        document.getElementById("id").value="";
-        document.getElementById("name").value="";
-        document.getElementById("date").value="";
-        document.getElementById("gender").value="";
-        document.getElementById("classroom").value="";
-        document.getElementById("image").value="";
-    }
-
-    function deleteStudent(i) {
-      manage.delete(i);
-      manage.listStudent();
-    }
-    let studentId = 0;
-    function editStudent(i){
-        let student = manage.findStudentById(i);
-        document.getElementById("id").value = student.id;
-        document.getElementById("name").value = student.name;
-        document.getElementById("name").value = student.date;
-        document.getElementById("gender").value = student.gender;
-        document.getElementById("classroom").value = student.classroom;
-        document.getElementById("image").value = student.image;
-
-        studentId = i;
-    }
-    function updateStudent(){
-        let id = document.getElementById("id").value;
-        let name = document.getElementById("name").value;
-        let date = document.getElementById("date").value;
-        let gender = document.getElementById("gender").value;
-        let classroom = document.getElementById("classroom").value;
-        let image = document.getElementById("image").value;
-
-        let student = manage.findStudentById(studentId)
-        manage.edit(student,id,name,date,gender,classroom, image);
-        manage.listStudent();
-        clear();
-    }
-    manage.listStudent();
-</script>)
-
 </html>

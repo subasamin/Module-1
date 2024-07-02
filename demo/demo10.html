@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        table, th, td {
+            border: 0.5px solid black;
+        }
+    </style>
 </head>
 <body>
+<img src="logo codegym.jpeg" height="120" width="1200" alt="logo codegym" align="center" />
+<h2 align="center" style="font-size: 70px">Quản lý học viên</h2>
 <table style="width:35%" align="left">
     <tr>
-        <th colspan="2" style="font-size: 18px" >Thông tin học viên </th>
+        <th colspan="2" style="font-size: 18px" >Thông tin học viên</th>
     </tr>
     <tr>
         <td align="center">ID</td>
-        <td id="id" align="center"><input type="text"></td>
+        <td id="id" align="center"><input type="number"></td>
     </tr>
     <tr>
         <td align="center">Họ tên</td>
@@ -23,7 +30,11 @@
     </tr>
     <tr>
         <td align="center">Giới tính</td>
-        <td id="gender" align="center"><input type="text"></td>
+        <td id="gender" align="center">
+            <input name="gender" type="radio" value="Nam" />Nam
+            <input name="gender" type="radio" value="Nữ" />Nữ
+            <input name="gender" type="radio" value="Khác" />Khác
+        </td>
     </tr>
     <tr>
         <td align="center">Lớp</td>
@@ -38,6 +49,22 @@
         <td align="center"><button onclick="addStudent()">Add</button> <button onclick="updateStudent()">Save</button></td>
     </tr>
 </table>
+<table style="width: 55%" align="right">
+    <tr>
+        <th colspan="7" align="center" style="font-size: 18px">Danh sách học viên</th>
+    </tr>
+    <tr>
+        <td align="center">ID</td>
+        <td align="center">Họ tên</td>
+        <td align="center">Ngày sinh</td>
+        <td align="center">Giới tính</td>
+        <td align="center">Lớp</td>
+        <td align="center">Ảnh</td>
+        <td align="center">Tuỳ chọn</td>
+    </tr>
+    <tbody id="list_student"></tbody>
+</table>
+</body>
 <script>
     class Student {
         constructor(id, name, date, gender, classroom, image) {
@@ -48,65 +75,75 @@
             this.classroom = classroom;
             this.image = image;
         }
-        getID (){
+
+        getID() {
             return this.id;
         }
-        getName(){
+
+        getName() {
             return this.name;
         }
-        getDate(){
+
+        getDate() {
             return this.date;
         }
-        getGender(){
+
+        getGender() {
             return this.gender;
         }
-        getClassroom(){
+
+        getClassroom() {
             return this.classroom;
         }
+
         getImage() {
             return this.image;
         }
-        setID(id){
-            this.id = id;
-        }
-        setName(name){
-            this.name = name;
-        }
-        setDate(date){
-            this.date = date;
-        }
-        setGender(gender){
-            this.gender = gender;
-        }
-        setClassroom(classroom){
-            this.classroom = classroom;
-        }
-        setImage(image){
-            this.image = image;
-        }
-        edit(id, name, date, gender, classroom, image){
-            this.id = id;
-            this.name = name;
-            this.date = date;
-            this.gender = gender;
-            this.classroom = classroom;
-            this.image = image;
-        }
-    }
-student = new Student('01','duy','03','nam','c05','qeeq')
-    function addStudent() {
-        let id = document.getElementById("id").value;
-        let name = document.getElementById("name").value;
-        let date = document.getElementById("date").value;
-        let gender = document.getElementById("gender").value;
-        let classroom = document.getElementById('classroom').value;
-        let image = document.getElementById("image").value;
-        let student = new Student(id,name,date,gender,classroom,image);
-        manage.addStudent(student);
-        manage.listStudent();
-        clear();
-    }
 
-</script>
-</body>
-</html>
+        setID(id) {
+            this.id = id;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setDate(date) {
+            this.date = date;
+        }
+
+        setGender(gender) {
+            this.gender = gender;
+        }
+
+        setClassroom(classroom) {
+            this.classroom = classroom;
+        }
+
+        setImage(image) {
+            this.image = image;
+        }
+
+        edit(id, name, date, gender, classroom, image) {
+            this.id = id;
+            this.name = name;
+            this.date = date;
+            this.gender = gender;
+            this.classroom = classroom;
+            this.image = image;
+        }
+    }
+    class manageStudent{
+        constructor(arr) {
+            this.student = arr
+        }
+        listStuden(){
+            let table = "";
+            for (i=0;i<this.student.length,i++){
+                table+= <tr>
+                table+= <tr>
+            }
+        }
+
+    }
+    </script>

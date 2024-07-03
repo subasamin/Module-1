@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="list_mobile"></table>
+<script>
+    class Mobile{
+        constructor(model,name,type,price) {
+            this.model = model;
+            this.name = name;
+            this.type = type;
+            this.price = price;
+        }
+        getModel(){
+            this.model = model;
+        }
+        getName(){
+            this.name = name;
+        }
+        getType(){
+            this.type = type;
+        }
+        getPrice(){
+            this.price = price;
+        }
+        setModel(model){
+            return this.model = model;
+        }
+        setName(name){
+            return this.name = name;
+        }
+        setType(type){
+            return this.type = type;
+        }
+        setPrice(price){
+            return this.price = price;
+        }
+    }
+    let iphone = new Mobile('A221','15Prm','Apple','1300$');
+    let samsung = new Mobile('S231','S23ultral','Samsung','1350$');
+    let huawei = new Mobile('H131','P50mate','huawei','950$');
+    let nokia = new Mobile('N031','E72','nokia','500$');
+    let arr = [iphone,samsung,huawei];
+    class dsMobile {
+        constructor(arr) {
+            this.mobile = arr;
+        }
+        listMobile() {
+            let table = "";
+            for (let i = 0; i < this.mobile.length; i++) {
+                table += '<tr>';
+                table += '<td>';
+                table += this.mobile[i].model;
+                table += '</td>';
+
+                table += '<td>';
+                table += this.mobile[i].name;
+                table += '</td>';
+
+                table += '<td>';
+                table += this.mobile[i].type;
+                table += '</td>';
+
+                table += '<td>';
+                table += this.mobile[i].price;
+                table += '</td>';
+                table += '</tr>';
+            }
+            document.getElementById("list_mobile").innerHTML = table;
+        }
+
+        addMobile(mobile) {
+            this.mobile.push(mobile);
+        }
+    }
+    let ds = new dsMobile(arr)
+    ds.listMobile()
+    ds.addMobile(nokia)
+
+
+
+</script>
+</body>
+</html>

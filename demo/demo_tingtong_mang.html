@@ -5,108 +5,36 @@
     <title>Title</title>
 </head>
 <body>
-<table style="width:35%" align="left">
-    <tr>
-        <th colspan="2" style="font-size: 18px" >Thông tin học viên </th>
-    </tr>
-    <tr>
-        <td align="center">ID</td>
-        <td id="id" align="center"><input type="text"></td>
-    </tr>
-    <tr>
-        <td align="center">Họ tên</td>
-        <td id="name" align="center"><input type="text"></td>
-    </tr>
-    <tr>
-        <td align="center">Ngày sinh</td>
-        <td id="date" align="center"><input type="text"></td>
-    </tr>
-    <tr>
-        <td align="center">Giới tính</td>
-        <td id="gender" align="center"><input type="text"></td>
-    </tr>
-    <tr>
-        <td align="center">Lớp</td>
-        <td id="classroom" align="center"><input type="text"></td>
-    </tr>
-    <tr>
-        <td align="center">Ảnh</td>
-        <td id="image" align="center"><input type="file"></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td align="center"><button onclick="addStudent()">Add</button> <button onclick="updateStudent()">Save</button></td>
-    </tr>
-</table>
 <script>
-    class Student {
-        constructor(id, name, date, gender, classroom, image) {
-            this.id = id;
-            this.name = name;
-            this.date = date;
-            this.gender = gender;
-            this.classroom = classroom;
-            this.image = image;
-        }
-        getID (){
-            return this.id;
-        }
-        getName(){
-            return this.name;
-        }
-        getDate(){
-            return this.date;
-        }
-        getGender(){
-            return this.gender;
-        }
-        getClassroom(){
-            return this.classroom;
-        }
-        getImage() {
-            return this.image;
-        }
-        setID(id){
-            this.id = id;
-        }
-        setName(name){
-            this.name = name;
-        }
-        setDate(date){
-            this.date = date;
-        }
-        setGender(gender){
-            this.gender = gender;
-        }
-        setClassroom(classroom){
-            this.classroom = classroom;
-        }
-        setImage(image){
-            this.image = image;
-        }
-        edit(id, name, date, gender, classroom, image){
-            this.id = id;
-            this.name = name;
-            this.date = date;
-            this.gender = gender;
-            this.classroom = classroom;
-            this.image = image;
-        }
+    let arr = [];
+    for (let i = 1;i<=20;i++){
+        let a = prompt('Nhập vào một số nguyên thứ'+' '+i);
+        arr.push(a);
     }
-student = new Student('01','duy','03','nam','c05','qeeq')
-    function addStudent() {
-        let id = document.getElementById("id").value;
-        let name = document.getElementById("name").value;
-        let date = document.getElementById("date").value;
-        let gender = document.getElementById("gender").value;
-        let classroom = document.getElementById('classroom').value;
-        let image = document.getElementById("image").value;
-        let student = new Student(id,name,date,gender,classroom,image);
-        manage.addStudent(student);
-        manage.listStudent();
-        clear();
-    }
+    document.write(arr);
 
+    function sumEven(arr) {
+        for (let i =0;i<arr.length;i++){
+            let sumEven = 0;
+            if (arr[i] % 2==0){
+                sumEven+=arr[i];
+            }
+    }
+        return sumEven;
+        }
+
+        function sumOdd(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                let sumOdd = 0;
+                if (arr[i] % 2 != 0) {
+                    sumOdd += arr[i];
+                }
+            }
+            return sumOdd;
+        }
+        let sum = 0;
+    sum = sumEven(arr) - sumOdd(arr);
+    document.write(sum)
 </script>
 </body>
 </html>

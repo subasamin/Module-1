@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i= 0;i<20;i++){
+        let a = prompt('Nhập vào một số nguyên')
+        arr[i] = a;
+    }
+    document.write(arr);
+    function sumOdd(arr) {
+        let sum = 0;
+        for (let i = 0; i<arr.length; i++){
+            if (arr[i]%2==0){
+                sum+=arr[i]
+            }
+        }
+        return sum;
+    }
+    function sumEven(arr) {
+        let sum = 0;
+        for (let i = 0; i<arr.length; i++){
+            if (arr[i]%2!=0){
+                sum+=arr[i]
+            }
+        }
+        return sum;
+    }
+    let a = sumEven(arr);
+    let b = sumOdd(arr);
+    let sum = 0;
+    sum = a - b;
+    document.write(sum)
+
+</script>
+</body>
+</html>
